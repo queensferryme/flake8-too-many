@@ -18,6 +18,11 @@ repos:
     hooks:
       - id: typos
         name: Check Typos
+  - repo: https://github.com/psf/black
+    rev: 21.7b0
+    hooks:
+      - id: black
+        name: Format Source Code
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v2.17.13
     hooks:
