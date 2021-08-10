@@ -18,6 +18,13 @@ TMN = "flake8_too_many:Checker"
 include = '\.pyi?$'
 target-version = ["py36", "py37", "py38", "py39"]
 
+[tool.isort]
+balanced_wrapping = true
+combine_as_imports = true
+lines_after_imports = 2
+profile = "black"
+src_paths = ["flake8_too_many", "tests"]
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

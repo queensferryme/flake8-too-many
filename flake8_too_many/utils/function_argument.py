@@ -1,6 +1,8 @@
 from ast import AsyncFunctionDef, FunctionDef, Lambda
-from ..message import TMN001
 from typing import Optional, Tuple, Union
+
+from ..message import TMN001
+
 
 AnyFunctionDef = Union[AsyncFunctionDef, FunctionDef, Lambda]
 

@@ -1,5 +1,4 @@
 import ast
-
 from typing import Any
 
 from .utils import validate_function_argument
