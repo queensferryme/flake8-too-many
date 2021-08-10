@@ -5,10 +5,11 @@ description = "A flake8 plugin that prevents you from writing \"too many\" bad c
 authors = ["Queensferry <queensferry.me@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.9.2"
+pre-commit = "^2.14.0"
 
 [tool.poetry.plugins."flake8.extension"]
 TMN = "flake8_too_many:Checker"
