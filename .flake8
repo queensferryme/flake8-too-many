@@ -1,0 +1,15 @@
+[flake8]
+count = true
+extend-exclude = tests/files/*
+ignore =
+    # A003: Class attribute "xxx" is shadowing a python builtin
+    A003,
+    # D100: Missing docstring in public module
+    D100,
+    # D104: Missing docstring in public package
+    D104,
+    # D105: Missing docstring in magic method
+    D105,
+    # D107: Missing docstring in __init__
+    D107
+max-line-length = 88
