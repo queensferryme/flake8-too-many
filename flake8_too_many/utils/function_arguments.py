@@ -1,7 +1,7 @@
 from ast import AsyncFunctionDef, FunctionDef, Lambda
 from typing import Optional, Tuple, Union
 
-from ..message import TMN001
+from ..messages import TMN001
 
 
 AnyFunctionDef = Union[AsyncFunctionDef, FunctionDef, Lambda]
@@ -20,14 +20,16 @@ def get_number_of_arguments(fn: AnyFunctionDef) -> int:
     return number
 
 
-def validate_function_argument(fn: AnyFunctionDef) -> Optional[Tuple[int, int, str]]:
+def validate_function_arguments(
+    fn: AnyFunctionDef, max_function_arguments: int
+) -> Optional[Tuple[int, int, str]]:
     """Validate if there are too many function arguments."""
     n = get_number_of_arguments(fn)
-    if n > 5:
+    if n > max_function_arguments:
         return (
             fn.lineno,
             fn.col_offset,
             # `ast.Lambda` nodes don't have the `name` attribute
-            TMN001.format(getattr(fn, "name", "lambda"), n, 5),
+            TMN001.format(getattr(fn, "name", "lambda"), n, max_function_arguments),
         )
     return None

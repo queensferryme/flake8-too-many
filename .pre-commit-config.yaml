@@ -47,7 +47,8 @@ repos:
         args: []
         # As `mypy` runs in an isolated environment, it is necessary to manually specify
         # some libraries of the current (poetry) environment for `mypy` to work properly.
-        additional_dependencies: []
+        additional_dependencies:
+          - types-dataclasses==0.1.5
         exclude: tests/files/
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v2.17.13

@@ -6,9 +6,10 @@ authors = ["Queensferry <queensferry.me@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6.1"
+dataclasses = {version = "^0.8", python = "< 3.7"}
+flake8 = "^3.9.2"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.9.2"
 pre-commit = "^2.14.0"
 
 [tool.poetry.plugins."flake8.extension"]
