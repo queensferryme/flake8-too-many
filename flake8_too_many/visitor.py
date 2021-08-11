@@ -1,5 +1,5 @@
 import ast
-from typing import Any
+from typing import Any, List, Tuple
 
 from .utils import validate_function_argument
 
@@ -9,7 +9,7 @@ class Visitor(ast.NodeVisitor):
 
     def __init__(self) -> None:
         super().__init__()
-        self.errors = []
+        self.errors: List[Tuple[int, int, str]] = []
 
     def visit_AsyncFunctionDef(self, fn: ast.AsyncFunctionDef) -> Any:  # noqa: N802
         """Visit `ast.AsyncFunctionDef` nodes."""

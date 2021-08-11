@@ -30,3 +30,4 @@ def validate_function_argument(fn: AnyFunctionDef) -> Optional[Tuple[int, int, s
             # `ast.Lambda` nodes don't have the `name` attribute
             TMN001.format(getattr(fn, "name", "lambda"), n, 5),
         )
+    return None

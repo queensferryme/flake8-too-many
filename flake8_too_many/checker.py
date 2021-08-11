@@ -1,4 +1,5 @@
 import ast
+from typing import Iterable, Tuple, Type
 
 from .visitor import Visitor
 
@@ -21,7 +22,7 @@ class Checker:
     def __init__(self, tree: ast.Module) -> None:
         self.tree = tree
 
-    def run(self):
+    def run(self) -> Iterable[Tuple[int, int, str, Type["Checker"]]]:
         """Run the `flake8-too-many` plugin over one python module."""
         visitor = Visitor()
         visitor.visit(self.tree)
