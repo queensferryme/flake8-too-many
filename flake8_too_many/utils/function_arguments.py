@@ -26,10 +26,5 @@ def validate_function_arguments(
     """Validate if there are too many function arguments."""
     n = get_number_of_arguments(fn)
     if n > max_function_arguments:
-        return (
-            fn.lineno,
-            fn.col_offset,
-            # `ast.Lambda` nodes don't have the `name` attribute
-            TMN001.format(getattr(fn, "name", "lambda"), n, max_function_arguments),
-        )
+        return (fn.lineno, fn.col_offset, TMN001.format(n, max_function_arguments))
     return None

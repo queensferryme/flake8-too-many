@@ -40,12 +40,22 @@ class Checker:
             type=int,
             help="Maximum number of function arguments allowed",
         )
+        parser.add_option(
+            "--max-function-return-values",
+            default=3,
+            parse_from_config=True,
+            type=int,
+            help="Maximum number of function return values allowed",
+        )
 
     @classmethod
     def parse_options(cls, options: Namespace) -> None:
         """Store parsed options in `cls.options`."""
         cls.options = Options(
-            **{"max_function_arguments": options.max_function_arguments}
+            **{
+                "max_function_arguments": options.max_function_arguments,
+                "max_function_return_values": options.max_function_return_values,
+            }
         )
 
     def run(self) -> Iterable[Tuple[int, int, str, Type["Checker"]]]:
