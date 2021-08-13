@@ -1,6 +1,5 @@
 [flake8]
 count = true
-extend-exclude = tests/files/*
 ignore =
     # A003: Class attribute "xxx" is shadowing a python builtin
     A003,
