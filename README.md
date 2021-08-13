@@ -1,6 +1,8 @@
 # flake8-too-many
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/queensferryme/flake8-too-many/master.svg)](https://results.pre-commit.ci/latest/github/queensferryme/flake8-too-many/master)
+[![github ci status](https://img.shields.io/github/workflow/status/queensferryme/flake8-too-many/Test?label=test&logo=github&message=passed)](https://github.com/RSSerpent/RSSerpent/actions/workflows/test.yaml)
+[![codecov](https://codecov.io/gh/queensferryme/flake8-too-many/branch/master/graph/badge.svg?token=56VCCB1JUB)](https://codecov.io/gh/queensferryme/flake8-too-many)
 
 A flake8 plugin that prevents you from writing "too many" bad codes.
 
