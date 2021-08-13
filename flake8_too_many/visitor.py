@@ -1,6 +1,8 @@
 import ast
 from typing import Any, List, Optional, Tuple
 
+from flake8_too_many.utils.function_return_stmts import validate_function_return_stmts
+
 from .options import Options
 from .utils import validate_function_arguments, validate_function_return_values
 
@@ -21,24 +23,38 @@ class Visitor(ast.NodeVisitor):
 
     def visit_AsyncFunctionDef(self, fn: ast.AsyncFunctionDef) -> Any:  # noqa: N802
         """Visit `ast.AsyncFunctionDef` nodes."""
+        # TMN001
         error = validate_function_arguments(fn, self.options.max_function_arguments)
+        self.add_error(error)
+        # TMN003
+        error = validate_function_return_stmts(
+            fn, self.options.max_function_return_stmts
+        )
         self.add_error(error)
         return self.generic_visit(fn)
 
     def visit_FunctionDef(self, fn: ast.FunctionDef) -> Any:  # noqa: N802
         """Visit `ast.FunctionDef` nodes."""
+        # TMN001
         error = validate_function_arguments(fn, self.options.max_function_arguments)
+        self.add_error(error)
+        # TMN003
+        error = validate_function_return_stmts(
+            fn, self.options.max_function_return_stmts
+        )
         self.add_error(error)
         return self.generic_visit(fn)
 
     def visit_Lambda(self, fn: ast.Lambda) -> Any:  # noqa: N802
         """Visit `ast.Lambda` nodes."""
+        # TMN001
         error = validate_function_arguments(fn, self.options.max_function_arguments)
         self.add_error(error)
         return self.generic_visit(fn)
 
     def visit_Return(self, rt: ast.Return) -> Any:  # noqa: N802
         """Visit `ast.Return` nodes."""
+        # TMN002
         error = validate_function_return_values(
             rt, self.options.max_function_return_values
         )

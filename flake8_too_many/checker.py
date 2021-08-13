@@ -41,6 +41,13 @@ class Checker:
             help="Maximum number of function arguments allowed",
         )
         parser.add_option(
+            "--max-function-return-stmts",
+            default=3,
+            parse_from_config=True,
+            type=int,
+            help="Maximum number of return statements in a function allowed",
+        )
+        parser.add_option(
             "--max-function-return-values",
             default=3,
             parse_from_config=True,
@@ -54,6 +61,7 @@ class Checker:
         cls.options = Options(
             **{
                 "max_function_arguments": options.max_function_arguments,
+                "max_function_return_stmts": options.max_function_return_stmts,
                 "max_function_return_values": options.max_function_return_values,
             }
         )
