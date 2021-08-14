@@ -1,5 +1,5 @@
 import ast
-from typing import Optional, Tuple, Union, cast
+from typing import Optional, Tuple
 
 from ..messages import TMN002
 
@@ -9,9 +9,8 @@ def get_number_of_return_values(rt: ast.Return) -> int:
     value = rt.value
     if value is None:
         return 0
-    elif type(value) not in (ast.List, ast.Tuple):
+    elif not isinstance(value, (ast.List, ast.Tuple)):
         return 1
-    value = cast(Union[ast.List, ast.Tuple], value)
     return len(value.elts)
 
 

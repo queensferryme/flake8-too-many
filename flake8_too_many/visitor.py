@@ -1,10 +1,13 @@
 import ast
 from typing import Any, List, Optional, Tuple
 
-from flake8_too_many.utils.function_return_stmts import validate_function_return_stmts
-
 from .options import Options
-from .utils import validate_function_arguments, validate_function_return_values
+from .utils import (
+    validate_function_arguments,
+    validate_function_return_stmts,
+    validate_function_return_values,
+    validate_unpacking_targets,
+)
 
 
 class Visitor(ast.NodeVisitor):
@@ -21,6 +24,12 @@ class Visitor(ast.NodeVisitor):
             return
         self.errors.append(error)
 
+    def visit_Assign(self, node: ast.Assign) -> Any:  # noqa: D102, N802
+        # TMN004
+        error = validate_unpacking_targets(node, self.options.max_unpacking_targets)
+        self.add_error(error)
+        return self.generic_visit(node)
+
     def visit_AsyncFunctionDef(  # noqa: D102, N802
         self, fn: ast.AsyncFunctionDef
     ) -> Any:
@@ -33,6 +42,12 @@ class Visitor(ast.NodeVisitor):
         )
         self.add_error(error)
         return self.generic_visit(fn)
+
+    def visit_For(self, node: ast.For) -> Any:  # noqa: D102, N802
+        # TMN004
+        error = validate_unpacking_targets(node, self.options.max_unpacking_targets)
+        self.add_error(error)
+        return self.generic_visit(node)
 
     def visit_FunctionDef(self, fn: ast.FunctionDef) -> Any:  # noqa: D102, N802
         # TMN001

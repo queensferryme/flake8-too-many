@@ -54,6 +54,13 @@ class Checker:
             type=int,
             help="Maximum number of function return values allowed",
         )
+        parser.add_option(
+            "--max-unpacking-targets",
+            default=5,
+            parse_from_config=True,
+            type=int,
+            help="Maximum number of unpacking targets allowed",
+        )
 
     @classmethod
     def parse_options(cls, options: Namespace) -> None:
@@ -63,6 +70,7 @@ class Checker:
                 "max_function_arguments": options.max_function_arguments,
                 "max_function_return_stmts": options.max_function_return_stmts,
                 "max_function_return_values": options.max_function_return_values,
+                "max_unpacking_targets": options.max_unpacking_targets,
             }
         )
 

@@ -8,3 +8,4 @@ class Options:
     max_function_arguments: int
     max_function_return_stmts: int
     max_function_return_values: int
+    max_unpacking_targets: int
