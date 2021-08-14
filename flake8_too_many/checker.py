@@ -21,7 +21,7 @@ class Checker:
     """
 
     name = "flake8-too-many"
-    version = "0.1.0-alpha.1"
+    version = "0.1.0"
 
     options: Options
 
