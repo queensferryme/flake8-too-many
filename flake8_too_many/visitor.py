@@ -21,8 +21,9 @@ class Visitor(ast.NodeVisitor):
             return
         self.errors.append(error)
 
-    def visit_AsyncFunctionDef(self, fn: ast.AsyncFunctionDef) -> Any:  # noqa: N802
-        """Visit `ast.AsyncFunctionDef` nodes."""
+    def visit_AsyncFunctionDef(  # noqa: D102, N802
+        self, fn: ast.AsyncFunctionDef
+    ) -> Any:
         # TMN001
         error = validate_function_arguments(fn, self.options.max_function_arguments)
         self.add_error(error)
@@ -33,8 +34,7 @@ class Visitor(ast.NodeVisitor):
         self.add_error(error)
         return self.generic_visit(fn)
 
-    def visit_FunctionDef(self, fn: ast.FunctionDef) -> Any:  # noqa: N802
-        """Visit `ast.FunctionDef` nodes."""
+    def visit_FunctionDef(self, fn: ast.FunctionDef) -> Any:  # noqa: D102, N802
         # TMN001
         error = validate_function_arguments(fn, self.options.max_function_arguments)
         self.add_error(error)
@@ -45,15 +45,13 @@ class Visitor(ast.NodeVisitor):
         self.add_error(error)
         return self.generic_visit(fn)
 
-    def visit_Lambda(self, fn: ast.Lambda) -> Any:  # noqa: N802
-        """Visit `ast.Lambda` nodes."""
+    def visit_Lambda(self, fn: ast.Lambda) -> Any:  # noqa: D102, N802
         # TMN001
         error = validate_function_arguments(fn, self.options.max_function_arguments)
         self.add_error(error)
         return self.generic_visit(fn)
 
-    def visit_Return(self, rt: ast.Return) -> Any:  # noqa: N802
-        """Visit `ast.Return` nodes."""
+    def visit_Return(self, rt: ast.Return) -> Any:  # noqa: D102, N802
         # TMN002
         error = validate_function_return_values(
             rt, self.options.max_function_return_values
