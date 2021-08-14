@@ -1,10 +1,13 @@
 import ast
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 
 from ..messages import TMN002
 
 
-def get_number_of_return_values(rt: ast.Return) -> int:
+AnyReturn = Union[ast.Return, ast.Yield]
+
+
+def get_number_of_return_values(rt: AnyReturn) -> int:
     """Get the number of function return values."""
     value = rt.value
     if value is None:
@@ -15,7 +18,7 @@ def get_number_of_return_values(rt: ast.Return) -> int:
 
 
 def validate_function_return_values(
-    rt: ast.Return, max_function_return_values: int
+    rt: AnyReturn, max_function_return_values: int
 ) -> Optional[Tuple[int, int, str]]:
     """Validate if there are too many function return values."""
     n = get_number_of_return_values(rt)

@@ -9,7 +9,7 @@ def f():
 
 # TMN002 function returns too many values (5 > 3).
 def g():
-    return [1, 2, 3, 4, 5]
+    yield [1, 2, 3, 4, 5]
 
 
 # TMN002 function returns too many values (6 > 3).

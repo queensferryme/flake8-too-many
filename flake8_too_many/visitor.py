@@ -73,3 +73,11 @@ class Visitor(ast.NodeVisitor):
         )
         self.add_error(error)
         return self.generic_visit(rt)
+
+    def visit_Yield(self, rt: ast.Yield) -> Any:  # noqa: D102, N802
+        # TMN002
+        error = validate_function_return_values(
+            rt, self.options.max_function_return_values
+        )
+        self.add_error(error)
+        return self.generic_visit(rt)
