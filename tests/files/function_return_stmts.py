@@ -1,4 +1,4 @@
-# TMN003 function too many return statements (6 > 3).
+# TMN003 function has too many return statements (6 > 3).
 def is_even(x: int) -> bool:
     if x == 1:
         return False
