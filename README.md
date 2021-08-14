@@ -40,6 +40,8 @@ repos:
 | TMN001 | function has too many arguments.         | [link](https://github.com/queensferryme/flake8-too-many/blob/master/tests/files/function_arguments.py) |
 | TMN002 | function returns too many values.        | [link](https://github.com/queensferryme/flake8-too-many/blob/master/tests/files/function_return_values.py) |
 | TMN003 | function has too many return statements. | [link](https://github.com/queensferryme/flake8-too-many/blob/master/tests/files/function_return_stmts.py) |
+| TMN004 | unpacking has too many targets.          | [link](https://github.com/queensferryme/flake8-too-many/blob/master/tests/files/unpacking_targets.py) |
+
 
 ## Options
 
@@ -47,6 +49,7 @@ These options could be either passed in as command line flags, or specified in a
 
 * `--max-function-arguments`, int, default to 5;
 * `--max-function-return-values`, int, default to 3;
-* `--max-function-return-stmts`, int, default to 3.
+* `--max-function-return-stmts`, int, default to 3;
+* `--max-unpacking-targets`, int, default to 5.
 
 Run `flake8 -h` for detailed description of each option.
