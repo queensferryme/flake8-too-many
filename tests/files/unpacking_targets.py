@@ -1,4 +1,14 @@
+# TMN004 unpacking has too many targets (7 > 5).
 a, b, c, d, e, f, g = 1, 2, 3, 4, 5, 6, 7
 
-for a, b, c, d, e in (range(n, n + 5) for n in range(5)):
-    print(a + b + c + d + e)
+# A correct example.
+a = b = 1
+c = 2
+
+# TMN004 unpacking has too many targets (6 > 5).
+for h, i, j, k, l, m in (range(n, n + 6) for n in range(5)):
+    print(h + i + j + k + l + m)
+
+# A correct example.
+for x in range(10):
+    print(x ** 2)
