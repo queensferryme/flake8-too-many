@@ -49,6 +49,7 @@ repos:
 These options could be either passed in as command line flags, or specified in a `.flake8` configuration file.
 
 * `--max-function-arguments`, int, default to 5;
+  * `--ignore-defaulted-arguments`, bool, default to false;
 * `--max-function-return-values`, int, default to 3;
 * `--max-function-return-stmts`, int, default to 3;
 * `--max-unpacking-targets`, int, default to 5.
