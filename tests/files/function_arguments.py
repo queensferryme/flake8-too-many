@@ -1,5 +1,5 @@
 # TMN001 function has too many arguments (6 > 5).
-def f(a, b, c, d, e, f):
+def f(a, b, c, d, e, f=None):
     pass
 
 

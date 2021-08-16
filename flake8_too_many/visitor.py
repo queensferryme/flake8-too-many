@@ -34,7 +34,7 @@ class Visitor(ast.NodeVisitor):
         self, fn: ast.AsyncFunctionDef
     ) -> Any:
         # TMN001
-        error = validate_function_arguments(fn, self.options.max_function_arguments)
+        error = validate_function_arguments(fn, self.options)
         self.add_error(error)
         # TMN003
         error = validate_function_return_stmts(
@@ -51,7 +51,7 @@ class Visitor(ast.NodeVisitor):
 
     def visit_FunctionDef(self, fn: ast.FunctionDef) -> Any:  # noqa: D102, N802
         # TMN001
-        error = validate_function_arguments(fn, self.options.max_function_arguments)
+        error = validate_function_arguments(fn, self.options)
         self.add_error(error)
         # TMN003
         error = validate_function_return_stmts(
@@ -62,7 +62,7 @@ class Visitor(ast.NodeVisitor):
 
     def visit_Lambda(self, fn: ast.Lambda) -> Any:  # noqa: D102, N802
         # TMN001
-        error = validate_function_arguments(fn, self.options.max_function_arguments)
+        error = validate_function_arguments(fn, self.options)
         self.add_error(error)
         return self.generic_visit(fn)
 

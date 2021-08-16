@@ -34,6 +34,14 @@ class Checker:
     ) -> None:
         """Define configurable options of the `flake8-too-many` plugin."""
         parser.add_option(
+            "--ignore-defaulted-arguments",
+            default=False,
+            parse_from_config=True,
+            type=bool,
+            help="Whether to ignore defaulted arguments for option \
+                 `--max-function-arguments`",
+        )
+        parser.add_option(
             "--max-function-arguments",
             default=5,
             parse_from_config=True,
@@ -67,6 +75,7 @@ class Checker:
         """Store parsed options in `cls.options`."""
         cls.options = Options(
             **{
+                "ignore_defaulted_arguments": options.ignore_defaulted_arguments,
                 "max_function_arguments": options.max_function_arguments,
                 "max_function_return_stmts": options.max_function_return_stmts,
                 "max_function_return_values": options.max_function_return_values,
