@@ -30,6 +30,7 @@ dataclasses = {version = "^0.8", python = "< 3.7"}
 flake8 = "^3.9.2"
 
 [tool.poetry.dev-dependencies]
+httpx = "^0.19.0"
 pre-commit = "^2.14.0"
 pytest = "^6.2.4"
 pytest-cov = "^2.12.1"
@@ -49,7 +50,6 @@ balanced_wrapping = true
 combine_as_imports = true
 lines_after_imports = 2
 profile = "black"
-src_paths = ["flake8_too_many", "tests"]
 
 [tool.mypy]
 disallow_any_generics = true
