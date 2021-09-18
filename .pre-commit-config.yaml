@@ -55,7 +55,7 @@ repos:
           - types-dataclasses==0.1.7
         exclude: tests/files/
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v2.18.0
+    rev: v2.18.1
     hooks:
       - id: commitizen
         name: Check Commit Message
