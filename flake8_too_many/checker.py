@@ -43,7 +43,7 @@ class Checker:
         )
         parser.add_option(
             "--max-function-arguments",
-            default=5,
+            default=6,
             parse_from_config=True,
             type=int,
             help="Maximum number of function arguments allowed",
@@ -64,7 +64,7 @@ class Checker:
         )
         parser.add_option(
             "--max-unpacking-targets",
-            default=5,
+            default=3,
             parse_from_config=True,
             type=int,
             help="Maximum number of unpacking targets allowed",
