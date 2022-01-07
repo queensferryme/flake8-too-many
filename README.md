@@ -1,6 +1,6 @@
 # flake8-too-many
 
-[![python: 3.6.1+](https://img.shields.io/badge/python->=3.6.1-blue.svg)](https://www.python.org/downloads/)
+[![python: 3.6.2+](https://img.shields.io/badge/python->=3.6.2-blue.svg)](https://www.python.org/downloads/)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/queensferryme/flake8-too-many/master.svg)](https://results.pre-commit.ci/latest/github/queensferryme/flake8-too-many/master)
 [![github ci status](https://img.shields.io/github/workflow/status/queensferryme/flake8-too-many/Test?label=test&logo=github&message=passed)](https://github.com/RSSerpent/RSSerpent/actions/workflows/test.yaml)
 [![codecov](https://codecov.io/gh/queensferryme/flake8-too-many/branch/master/graph/badge.svg?token=56VCCB1JUB)](https://codecov.io/gh/queensferryme/flake8-too-many)
