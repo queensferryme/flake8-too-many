@@ -8,8 +8,8 @@ def test() -> None:
     """Test default option `--max-unpacking-targets`."""
     process = subprocess.run(["flake8", file], stdout=subprocess.PIPE)
     e1, e2, count = process.stdout.decode("utf-8").splitlines()
-    assert e1.endswith("2:1: TMN004 unpacking has too many targets (7 > 5).")
-    assert e2.endswith("9:1: TMN004 unpacking has too many targets (6 > 5).")
+    assert e1.endswith("2:1: TMN004 unpacking has too many targets (7 > 3).")
+    assert e2.endswith("9:1: TMN004 unpacking has too many targets (6 > 3).")
     assert int(count) == 2
 
 

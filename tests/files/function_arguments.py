@@ -1,12 +1,12 @@
-# TMN001 function has too many arguments (6 > 5).
-def f(a, b, c, d, e, f=None):
+# A correct example
+def f(a, b, c, d, e, f):
     pass
 
 
-# TMN001 function has too many arguments (7 > 5).
-async def g(a, b, c, d, e, f, g):
+# TMN001 function has too many arguments (7 > 6).
+async def g(a, b, c, d, e, f, g=None):
     pass
 
 
-# TMN001 function has too many arguments (7 > 5).
+# TMN001 function has too many arguments (7 > 6).
 lambda a, b, c, d, e, f, g: None
