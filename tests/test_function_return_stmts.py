@@ -7,8 +7,10 @@ file = "tests/files/function_return_stmts.py"
 def test() -> None:
     """Test default option `--max-function-return-stmts`."""
     process = subprocess.run(["flake8", file], stdout=subprocess.PIPE)
-    e1, count = process.stdout.decode("utf-8").splitlines()
-    assert e1.endswith("2:1: TMN003 function has too many return statements (6 > 3).")
+    error, count = process.stdout.decode("utf-8").splitlines()
+    assert error.endswith(
+        "2:1: TMN003 function has too many return statements (6 > 3)."
+    )
     assert int(count) == 1
 
 
