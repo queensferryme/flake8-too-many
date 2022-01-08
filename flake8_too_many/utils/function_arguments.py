@@ -1,5 +1,5 @@
-from ast import AsyncFunctionDef, FunctionDef, Lambda
-from typing import Optional, Tuple, Union
+from ast import AsyncFunctionDef, FunctionDef, Lambda, arg
+from typing import List, Optional, Tuple, Union
 
 from ..messages import TMN001
 from ..options import Options
@@ -12,17 +12,21 @@ def get_number_of_arguments(
     fn: AnyFunctionDef, ignore_defaulted_arguments: bool
 ) -> int:
     """Get the number of function arguments."""
-    arguments = fn.args
-    number = 0
+    arguments: List[arg] = []
+    # posonlyargs, args, vararg, kwonlyargs, kwarg
     # position-only arguments are only available in py3.8+
-    number += len(getattr(arguments, "posonlyargs", ""))
-    number += len(arguments.args)
-    number += 1 if arguments.vararg else 0
-    number += len(arguments.kwonlyargs)
-    number += 1 if arguments.kwarg else 0
+    arguments.extend(getattr(fn.args, "posonlyargs", []))
+    arguments.extend(fn.args.args)
+    if fn.args.vararg:
+        arguments.append(fn.args.vararg)
+    arguments.extend(fn.args.kwonlyargs)
+    if fn.args.kwarg:
+        arguments.append(fn.args.kwarg)
+    # NOTE: do not count arguments named `_`
+    number = len(list(filter(lambda x: x.arg != "_", arguments)))
     if ignore_defaulted_arguments:
-        number -= len(arguments.defaults)
-        number -= len(arguments.kw_defaults)
+        number -= len(fn.args.defaults)
+        number -= len(fn.args.kw_defaults)
     return number
 
 

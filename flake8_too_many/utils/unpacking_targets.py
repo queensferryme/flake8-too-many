@@ -11,7 +11,7 @@ def get_number_of_unpacking_targets_in_assignments(node: ast.Assign) -> int:
     target = node.targets[0]
     if not isinstance(target, (ast.List, ast.Tuple)):
         return 1
-    return len(target.elts)
+    return len(list(filter(is_not_underscore, target.elts)))
 
 
 def get_number_of_unpacking_targets_in_for_loops(node: ast.For) -> int:
@@ -19,7 +19,12 @@ def get_number_of_unpacking_targets_in_for_loops(node: ast.For) -> int:
     target = node.target
     if not isinstance(target, (ast.List, ast.Tuple)):
         return 1
-    return len(target.elts)
+    return len(list(filter(is_not_underscore, target.elts)))
+
+
+def is_not_underscore(expr: ast.expr) -> bool:
+    """Check if the `ast.expr` instance is an underscore identifier."""
+    return isinstance(expr, ast.Name) and expr.id != "_"
 
 
 def validate_unpacking_targets(
