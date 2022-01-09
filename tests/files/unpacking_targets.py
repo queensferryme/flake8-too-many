@@ -1,5 +1,5 @@
 # TMN004 unpacking has too many targets (7 > 3).
-a, b, c, d, e, f, g = 1, 2, 3, 4, 5, 6, 7
+a, b, c, d, e, f, g = array = 1, 2, 3, 4, 5, 6, 7
 
 # A correct example.
 a = b = 1
