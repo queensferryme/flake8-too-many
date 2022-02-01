@@ -11,4 +11,4 @@ for h, i, j, k, l, m in (range(n, n + 6) for n in range(5)):
 
 # A correct example.
 for x in range(10):
-    print(x ** 2)
+    print(x**2)

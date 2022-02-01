@@ -22,13 +22,13 @@ repos:
       - id: pyupgrade
         name: Upgrade Python Syntax
   - repo: https://github.com/crate-ci/typos
-    rev: typos-dict-v0.7.2
+    rev: typos-v0.8.5
     hooks:
       - id: typos
         name: Check Typos
         args: []
   - repo: https://github.com/psf/black
-    rev: 21.12b0
+    rev: 22.1.0
     hooks:
       - id: black
         name: Format Source Code
