@@ -29,9 +29,7 @@ class Checker:
         self.tree = tree
 
     @classmethod
-    def add_options(  # type: ignore[no-any-unimported]
-        cls, parser: OptionManager
-    ) -> None:
+    def add_options(cls, parser: OptionManager) -> None:
         """Define configurable options of the `flake8-too-many` plugin."""
         parser.add_option(
             "--ignore-defaulted-arguments",

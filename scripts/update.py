@@ -7,7 +7,7 @@ import httpx
 
 
 # Update `.pre-commit-config.yaml`
-print("Updating .pre-commit-config.yaml")  # noqa: T001
+print("Updating .pre-commit-config.yaml")  # noqa: T201
 
 
 def get_package_latest_version(package_name: str) -> str:
