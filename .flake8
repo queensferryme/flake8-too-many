@@ -10,3 +10,6 @@ ignore =
     # D107: Missing docstring in __init__
     D107
 max-line-length = 88
+
+# flake8-docstrings
+docstring-convention = google
