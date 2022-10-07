@@ -11,7 +11,7 @@ jobs:
     env:
       IS_PRE_RELEASE: false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: fregante/setup-git-user@v1
       - uses: actions/setup-python@v2
         with:
@@ -30,11 +30,10 @@ jobs:
           poetry install
           poetry build
       - name: "Create Release on GitHub"
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
         with:
-          allowUpdates: true
-          artifacts: "dist/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          files: "dist/*"
+          fail_on_unmatched_files: true
           prerelease: ${{ env.IS_PRE_RELEASE }}
       - name: "Publish to PyPI"
         if: ${{ github.repository == 'queensferryme/flake8-too-many' }}
