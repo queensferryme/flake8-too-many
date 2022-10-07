@@ -1,5 +1,5 @@
 # A correct example
-def f(a, b, c, d, e, f, _):
+def f(a, b, c, d, e, *_, **f):
     pass
 
 
