@@ -6,10 +6,6 @@ import re
 import httpx
 
 
-# Update `.pre-commit-config.yaml`
-print("Updating .pre-commit-config.yaml")  # noqa: T201
-
-
 def get_package_latest_version(package_name: str) -> str:
     """Get the latest stable version of a PyPI package."""
     response = httpx.get(f"https://pypi.org/pypi/{package_name}/json")
@@ -17,6 +13,7 @@ def get_package_latest_version(package_name: str) -> str:
     return latest_version
 
 
+# --- Update pre-commit config ---#
 with open(".pre-commit-config.yaml") as file:
     text = file.read()
 
@@ -31,6 +28,6 @@ with open(".pre-commit-config.yaml", "w") as file:
     file.write(text)
 
 
-# Update poetry dependencies
+# --- Update poetry dependencies ---#
 os.system("poetry update")
 os.system("poetry show -lo")
